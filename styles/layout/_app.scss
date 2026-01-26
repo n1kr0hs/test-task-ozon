@@ -1,0 +1,37 @@
+@use '../base/variables' as *;
+
+#app {
+  background: $card-bg;
+  padding: 28px 20px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (orientation: landscape) {
+  #app {
+    max-width: 568px;
+    padding: 32px 40px;
+  }
+
+  #main {
+    display: flex;
+    justify-content: center;
+    
+    gap: 40px;
+  }
+
+  #progress-container {
+    margin: 0;
+  }
+
+  #controls {
+    max-width: 300px;
+  }
+
+  
+}

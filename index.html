@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test task Ozon</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>Progress</h1>
+      <div id="main">
+        <div id="progress-container"></div>
+        <div id="controls">
+          <div class="control">
+            <input type="number" id="value-input" min="0" max="100" value="0" />
+            <label for="value-input">Value</label>
+          </div>
+          <div class="control">
+            <label class="switch">
+              <input type="checkbox" id="animate-toggle" />
+              <span class="slider"></span>
+            </label>
+            <label for="animate-toggle">Animate</label>
+          </div>
+          <div class="control">
+            <label class="switch">
+              <input type="checkbox" id="hide-toggle" />
+              <span class="slider"></span>
+            </label>
+            <label for="hide-toggle">Hide</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/progress.js" defer></script>
+  </body>
+</html>

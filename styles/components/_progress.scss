@@ -1,0 +1,40 @@
+@use '../base/variables' as *;
+
+#progress-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 62px;
+}
+
+svg {
+  width: $progress-size;
+  height: $progress-size;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: $gray-light;
+  stroke-width: $stroke-bg;
+}
+
+.circle-progress {
+  fill: none;
+  stroke: $primary;
+  stroke-width: $stroke-fg;
+  stroke-dasharray: 251.327;
+  stroke-dashoffset: 251.327;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: spin 1.6s linear infinite;
+  animation-play-state: paused;
+}
+
+.animated .circle-progress {
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  from { transform: rotate(-90deg); }
+  to   { transform: rotate(270deg); }
+}
