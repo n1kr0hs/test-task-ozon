@@ -1,5 +1,6 @@
 class Progress {
-  constructor(container) {
+  constructor(container, options = {}) {
+    if (!container) throw new Error("Progress: нужен контейнер!!!");
     this.container = container;
 
     this.svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -19,42 +20,73 @@ class Progress {
     this.progress.setAttribute("cx", "50");
     this.progress.setAttribute("cy", "50");
     this.progress.setAttribute("r", "40");
+    this.progress.setAttribute("stroke-linecap", "butt");
 
     this.svg.append(this.bg, this.progress);
     this.container.appendChild(this.svg);
 
     this.circumference = 2 * Math.PI * 40;
+    this.progress.style.strokeDasharray = String(this.circumference);
 
     this.value = 0;
     this.animated = false;
     this.hidden = false;
 
+    this.opts = Object.assign(
+      {
+        errorThreshold: 101,
+        hiddenClass: "hidden",
+        animatedClass: "animated",
+        errorClass: "error",
+      },
+      options,
+    );
+
     this.update();
   }
 
   setValue(val) {
-    this.value = Number(val) || 0;
+    this.value = Math.max(0, Number(val) || 0);
     this.update();
+
+    this.svg.dispatchEvent(
+      new CustomEvent("progress:change", { detail: { value: this.value } }),
+    );
   }
 
   setAnimated(isOn) {
     this.animated = !!isOn;
-    this.update();
+    this.svg.classList.toggle(this.opts.animatedClass, this.animated);
   }
 
   setHidden(isHidden) {
     this.hidden = !!isHidden;
-    this.update();
+    if (this.container) {
+      this.container.classList.toggle(this.opts.hiddenClass, this.hidden);
+    }
+  }
+
+  getElement() {
+    return this.svg;
+  }
+
+  destroy() {
+    if (this.svg && this.svg.parentNode)
+      this.svg.parentNode.removeChild(this.svg);
+    this.svg = null;
+    this.progress = null;
+    this.bg = null;
+    this.container = null;
   }
 
   update() {
-    const isError = this.value >= 101;
-    const displayValue = Math.min(100, Math.max(0, this.value));
+    let progressRatio = Math.min(1, this.value / 100);
+    const isError = this.value >= this.opts.errorThreshold;
 
-    const progress = isError ? 1 : displayValue / 100;
-    const offset = this.circumference * (1 - progress);
+    if (isError) progressRatio = 1;
 
-    this.progress.style.strokeDashoffset = offset;
+    const offset = this.circumference * (1 - progressRatio);
+    this.progress.style.setProperty("stroke-dashoffset", offset);
 
     if (isError) {
       this.progress.style.stroke = "#ef4444";
@@ -62,36 +94,6 @@ class Progress {
       this.progress.style.stroke = "";
     }
 
-    this.svg.classList.toggle("animated", this.animated);
-    this.container.classList.toggle("hidden", this.hidden);
-    this.svg.classList.toggle("error", isError);
+    this.svg.classList.toggle(this.opts.errorClass, isError);
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("progress-container");
-  const progress = new Progress(container);
-
-  const valueInput = document.getElementById("value-input");
-  if (valueInput) {
-    valueInput.addEventListener("input", (e) => {
-      progress.setValue(e.target.value);
-    });
-  }
-
-  const animateToggle = document.getElementById("animate-toggle");
-  if (animateToggle) {
-    animateToggle.addEventListener("change", (e) => {
-      progress.setAnimated(e.target.checked);
-    });
-  }
-
-  const hideToggle = document.getElementById("hide-toggle");
-  if (hideToggle) {
-    hideToggle.addEventListener("change", (e) => {
-      progress.setHidden(e.target.checked);
-    });
-  }
-
-  progress.setValue(0);
-});
