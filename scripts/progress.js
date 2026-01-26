@@ -33,7 +33,7 @@ class Progress {
   }
 
   setValue(val) {
-    this.value = Math.max(0, Math.min(100, Number(val) || 0));
+    this.value = Number(val) || 0;
     this.update();
   }
 
@@ -48,14 +48,23 @@ class Progress {
   }
 
   update() {
-    let progress = this.value / 100;
-    if (this.value === 100) progress = 0.99;
+    const isError = this.value >= 101;
+    const displayValue = Math.min(100, Math.max(0, this.value));
 
+    const progress = isError ? 1 : displayValue / 100;
     const offset = this.circumference * (1 - progress);
+
     this.progress.style.strokeDashoffset = offset;
+
+    if (isError) {
+      this.progress.style.stroke = "#ef4444";
+    } else {
+      this.progress.style.stroke = "";
+    }
 
     this.svg.classList.toggle("animated", this.animated);
     this.container.classList.toggle("hidden", this.hidden);
+    this.svg.classList.toggle("error", isError);
   }
 }
 

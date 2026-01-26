@@ -38,3 +38,13 @@ svg {
   from { transform: rotate(-90deg); }
   to   { transform: rotate(270deg); }
 }
+
+svg.error .circle-progress {
+  stroke: #ef4444 !important;
+  animation: pulse-error 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse-error {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.65; }
+}
