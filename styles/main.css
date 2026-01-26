@@ -28,7 +28,6 @@ body {
   #main {
     display: flex;
     justify-content: center;
-    gap: 40px;
   }
   #progress-container {
     margin: 0;

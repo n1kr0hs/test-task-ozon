@@ -5,30 +5,33 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const progress = new Progress(container);
+  const progress = new Progress(container, {
+    initialValue: 60,
+  });
+
+  progress.setAnimated(true);
 
   const valueInput = document.getElementById("value-input");
-  if (valueInput) {
-    valueInput.addEventListener("input", (e) =>
-      progress.setValue(e.target.value),
-    );
-  }
-
   const animateToggle = document.getElementById("animate-toggle");
-  if (animateToggle) {
-    animateToggle.addEventListener("change", (e) =>
-      progress.setAnimated(e.target.checked),
-    );
-  }
-
   const hideToggle = document.getElementById("hide-toggle");
-  if (hideToggle) {
-    hideToggle.addEventListener("change", (e) =>
-      progress.setHidden(e.target.checked),
-    );
-  }
 
-  progress.setValue(0);
+  if (valueInput) valueInput.value = progress.value;
 
-  window.__progressInstance = progress;
+  if (animateToggle) animateToggle.checked = true;
+
+  valueInput?.addEventListener("input", (e) => {
+    progress.setValue(e.target.value);
+  });
+
+  animateToggle?.addEventListener("change", (e) => {
+    progress.setAnimated(e.target.checked);
+  });
+
+  hideToggle?.addEventListener("change", (e) => {
+    progress.setHidden(e.target.checked);
+  });
+
+  progress.svg.addEventListener("progress:change", (e) => {
+    if (valueInput) valueInput.value = e.detail.value;
+  });
 });
