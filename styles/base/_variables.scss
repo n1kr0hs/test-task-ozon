@@ -7,19 +7,17 @@ $gray: #8e8e93;
 $border: black;
 
 // Размеры
-$progress-size: 140px;
-$stroke-bg: 9;
-$stroke-fg: 10;
+$progress-size: 150px;
 $switch-width: 45px;
 $switch-height: 28px;
 $switch-knob-size: 24px;
 
 // Шрифты
 $font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-$font-size-heading: 1.4rem;
-$font-size-label: 1.1rem;
-$font-size-value: 1rem;
+$font-size: 16px;
+$font-weight: 500;
 
 // Интервалы
-$gap-controls: 20px;
-$gap-control-items: 12px;
+$gap-controls: 13px;
+$gap-control-items: 20px;
+$padding-base: 22px

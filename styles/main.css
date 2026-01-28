@@ -3,60 +3,60 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  font-family: -apple-system, BlinkMacOSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 500;
   background: #f5f5f7;
 }
 
 #app {
   background: white;
-  padding: 28px 20px;
-  border-radius: 20px;
+  padding: 22px;
   width: 100%;
   max-width: 320px;
+  box-sizing: border-box;
 }
 
 .hidden {
   display: none !important;
 }
 
+@media (orientation: portrait) {
+  #controls {
+    margin: 70px auto 100px;
+  }
+}
 @media (orientation: landscape) {
   #app {
     max-width: 568px;
-    padding: 32px 40px;
   }
   #main {
     display: flex;
     justify-content: center;
-  }
-  #progress-container {
-    margin: 0;
+    align-items: center;
+    max-width: 460px;
+    margin: 0 auto 52px;
   }
   #controls {
-    max-width: 300px;
+    max-width: 280px;
   }
 }
 #progress-container {
   display: flex;
   justify-content: center;
-  margin: 0 auto 62px;
+  margin: 0 auto;
 }
 
 svg {
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
 }
 
 .circle-bg {
   fill: none;
-  stroke: #e5e5ea;
-  stroke-width: 9;
 }
 
 .circle-progress {
   fill: none;
-  stroke: #007aff;
-  stroke-width: 10;
   transition: stroke-dashoffset 0.6s ease-out, stroke 0.4s ease;
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
@@ -92,19 +92,18 @@ svg.error .circle-progress {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 13px;
   width: 100%;
   max-width: 260px;
-  margin: 0 auto;
 }
 
 .control {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
   width: 100%;
-  max-width: 140px;
+  max-width: 150px;
 }
 .control > *:first-child {
   flex: 0 0 45px;
@@ -113,19 +112,20 @@ svg.error .circle-progress {
 }
 .control label:not(.switch) {
   flex: 1;
-  font-size: 1.1rem;
+  font-size: 16px;
   text-align: left;
 }
 
 h1 {
-  font-size: 1.4rem;
-  margin: 0 0 50px;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 52px;
 }
 
 input[type=number] {
   width: 100%;
-  height: 28px;
-  font-size: 1rem;
+  height: 25.34px;
+  font-size: 16px;
   text-align: center;
   background: white;
   border: 1.5px solid black;

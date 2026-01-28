@@ -6,8 +6,8 @@ class Progress {
     this.opts = Object.assign(
       {
         radius: 40,
-        strokeWidthBg: 4,
-        strokeWidthFg: 4,
+        strokeWidthBg: 8,
+        strokeWidthFg: 8,
         colorBg: "#eee",
         colorFg: "#007aff",
         errorColor: "#ef4444",

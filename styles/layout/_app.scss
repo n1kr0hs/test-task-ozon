@@ -2,32 +2,36 @@
 
 #app {
   background: $card-bg;
-  padding: 28px 20px;
-  border-radius: 20px;
+  padding: $padding-base;
   width: 100%;
   max-width: 320px;
+  box-sizing: border-box;      
 }
 
 .hidden {
   display: none !important;
 }
 
+@media  (orientation: portrait) {
+  #controls {
+    margin: 70px auto 100px;
+  }
+}
+
 @media (orientation: landscape) {
   #app {
     max-width: 568px;
-    padding: 32px 40px;
   }
 
   #main {
-    display: flex;
+   display: flex;
     justify-content: center;
-  }
-
-  #progress-container {
-    margin: 0;
+    align-items: center;
+    max-width: 460px;             
+    margin: 0 auto 52px;
   }
 
   #controls {
-    max-width: 300px;
+    max-width: 280px;           
   }
 }

@@ -3,7 +3,7 @@
 #progress-container {
   display: flex;
   justify-content: center;
-  margin: 0 auto 62px;
+  margin: 0 auto;
 }
 
 svg {
@@ -13,14 +13,10 @@ svg {
 
 .circle-bg {
   fill: none;
-  stroke: $gray-light;
-  stroke-width: $stroke-bg;
 }
 
 .circle-progress {
   fill: none;
-  stroke: $primary;
-  stroke-width: $stroke-fg;
   transition: stroke-dashoffset 0.6s ease-out, stroke 0.4s ease;
   transform: rotate(-90deg);
   transform-origin: 50% 50%;

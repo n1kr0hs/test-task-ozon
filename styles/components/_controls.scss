@@ -7,7 +7,6 @@
   gap: $gap-controls;
   width: 100%;
   max-width: 260px;
-  margin: 0 auto;
 }
 
 .control {
@@ -16,7 +15,7 @@
   align-items: center;
   gap: $gap-control-items;
   width: 100%;
-  max-width: 140px;
+  max-width: 150px;
 
   > *:first-child {
     flex: 0 0 $switch-width;
@@ -26,20 +25,21 @@
 
   label:not(.switch) {
     flex: 1;
-    font-size: $font-size-label;
+    font-size: $font-size;
     text-align: left;
   }
 }
 
 h1 {
-  font-size: $font-size-heading;
-  margin: 0 0 50px;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  margin: 0 0 52px;
 }
 
 input[type="number"] {
   width: 100%;
-  height: $switch-height;
-  font-size: $font-size-value;
+  height: 25.34px;
+  font-size: $font-size;
   text-align: center;
   background: white;
   border: 1.5px solid $border;
