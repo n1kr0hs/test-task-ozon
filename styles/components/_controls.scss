@@ -1,5 +1,11 @@
 @use '../base/variables' as *;
 
+h1 {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  margin: 0 0 52px;
+}
+
 #controls {
   display: flex;
   flex-direction: column;
@@ -17,7 +23,7 @@
   width: 100%;
   max-width: 150px;
 
-  > *:first-child {
+  input {
     flex: 0 0 $switch-width;
     display: flex;
     justify-content: center;
@@ -28,12 +34,6 @@
     font-size: $font-size;
     text-align: left;
   }
-}
-
-h1 {
-  font-size: $font-size;
-  font-weight: $font-weight;
-  margin: 0 0 52px;
 }
 
 input[type="number"] {
@@ -50,8 +50,7 @@ input[type="number"] {
   &:focus {
     outline: none;
     border-color: $primary;
-    box-shadow: inset 0 1px 2px rgba(black, 0.05),
-                0 0 0 3px rgba($primary, 0.2);
+    box-shadow: inset 0 1px 2px rgba(black, 0.05), 0 0 0 3px rgba($primary, 0.2);
   }
 
   &::-webkit-inner-spin-button,
@@ -70,9 +69,8 @@ input[type="number"] {
   height: $switch-height;
 
   input {
+    position: absolute;
     opacity: 0;
-    width: 0;
-    height: 0;
   }
 
   .slider {

@@ -28,7 +28,7 @@ input {
 
 @media (orientation: portrait) {
   #controls {
-    margin: 70px auto 100px;
+    margin: 80px auto 110px;
   }
 }
 @media (orientation: landscape) {
@@ -51,8 +51,7 @@ input {
   justify-content: center;
   margin: 0 auto;
 }
-
-svg {
+#progress-container svg {
   width: 150px;
   height: 150px;
 }
@@ -69,11 +68,9 @@ svg {
   animation: spin 1.8s linear infinite;
   animation-play-state: paused;
 }
-
 .animated .circle-progress {
   animation-play-state: running;
 }
-
 svg.error .circle-progress {
   stroke: #ef4444;
 }
@@ -94,6 +91,12 @@ svg.error .circle-progress {
     opacity: 0.65;
   }
 }
+h1 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 52px;
+}
+
 #controls {
   display: flex;
   flex-direction: column;
@@ -111,7 +114,7 @@ svg.error .circle-progress {
   width: 100%;
   max-width: 150px;
 }
-.control > *:first-child {
+.control input {
   flex: 0 0 45px;
   display: flex;
   justify-content: center;
@@ -120,12 +123,6 @@ svg.error .circle-progress {
   flex: 1;
   font-size: 16px;
   text-align: left;
-}
-
-h1 {
-  font-size: 16px;
-  font-weight: 500;
-  margin: 0 0 52px;
 }
 
 input[type=number] {
@@ -159,9 +156,8 @@ input[type=number] {
   height: 28px;
 }
 .switch input {
+  position: absolute;
   opacity: 0;
-  width: 0;
-  height: 0;
 }
 .switch .slider {
   position: absolute;
