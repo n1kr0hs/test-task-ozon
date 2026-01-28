@@ -20,6 +20,12 @@ body {
   display: none !important;
 }
 
+button,
+label,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
 @media (orientation: portrait) {
   #controls {
     margin: 70px auto 100px;
