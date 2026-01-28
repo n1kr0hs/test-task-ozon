@@ -8,6 +8,8 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+
+  
 }
 
 body {
@@ -15,6 +17,7 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
+
 
 img {
   max-width: 100%;
@@ -51,4 +54,10 @@ a {
 button {
   border: none;
   background: none;
+}
+
+button,
+label,
+input {
+  -webkit-tap-highlight-color: transparent;
 }
