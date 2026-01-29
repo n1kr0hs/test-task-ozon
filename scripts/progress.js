@@ -80,7 +80,9 @@ class Progress {
   setHidden(isHidden) {
     this.hidden = !!isHidden;
     if (this.container) {
-      this.container.classList.toggle(this.opts.hiddenClass, this.hidden);
+      this.container.style.opacity = isHidden ? "0" : "1";
+      this.container.style.visibility = isHidden ? "hidden" : "visible";
+      this.container.style.pointerEvents = isHidden ? "none" : "auto";
     }
   }
 
