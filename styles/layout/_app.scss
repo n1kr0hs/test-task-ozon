@@ -8,10 +8,6 @@
   box-sizing: border-box;  
 }
 
-.hidden {
-  display: none !important;
-}
-
 button,
 label,
 input {
@@ -21,10 +17,6 @@ input {
 @media (orientation: portrait) {
   #controls {
     margin: 80px auto 110px;
-  }
-
-  #main {
-    min-height: 300px;      
   }
 }
 
@@ -39,7 +31,6 @@ input {
     align-items: center;
     max-width: 460px;             
     margin: 0 auto 52px;
-    min-height: 140px;          
   }
 
   #controls {
