@@ -1,4 +1,4 @@
-﻿# Тестовое задание "Реализовать блок Progress"
+﻿# Тестовое задание "Реализовать блок Progress" (Принято)
 
 ##  Реализованный функционал
 
@@ -17,6 +17,7 @@
 ### [Deploy](https://n1kr0hs.github.io/test-task-ozon/)
 #### HTML & SCSS & JS
 ##### Макеты <img width="998" height="604" alt="image" src="https://github.com/user-attachments/assets/41bd6c89-41c3-472b-a61f-131749328f95" />
+
 
 
 
